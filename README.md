@@ -30,7 +30,9 @@ cursor-ios-rules/install.sh user
 
 Copies to `~/.cursor/rules/`. Good for solo dev; watch the always-on token budget (see below).
 
-### Option B: One project
+**Note:** Project-level install (Option B) is the most reliable way to load rules in Cursor. Global `~/.cursor/rules/` support can vary by Cursor version.
+
+### Option B: One project (recommended for teams)
 
 ```bash
 git clone https://github.com/kkarimz/cursor-ios-rules.git
@@ -58,22 +60,22 @@ Updates when you bump the submodule.
 
 Rules apply to **Agent (Chat / Composer)** and the **Cursor CLI agent**. They do not apply to Tab completion or Cmd+K inline edit.
 
-## Recommended setup for iOS teams
+## Recommended setup
 
-**Per-project (best for teams):**
+**Solo dev:**
+
+- Global install (`install.sh user`) for all repos on your machine.
+
+**Teams:**
 
 ```
 YourApp/
   .cursor/
-    rules/          ← copy from this repo
+    rules/          ← copy from this repo (Option B)
   docs/
     app-store/
       LISTING.md    ← source of truth for App Store copy
 ```
-
-**Solo dev:**
-
-- Global install (`install.sh user`) plus project-specific overrides in `YourApp/.cursor/rules/` when needed.
 
 **Fork and customize:**
 
@@ -99,7 +101,7 @@ Cursor 3.3+ shows a **context ring** next to the prompt with a per-bucket breakd
 ### SwiftUI (`swiftui.mdc`)
 
 - Views render state; no networking in `body`
-- `@State` / `@StateObject` / `@Environment` used correctly
+- `@Observable` / `@Bindable` when deployment target allows; otherwise `ObservableObject`
 - `.task(id:)` over bare `.onAppear` for async work
 - `#Preview` for non-trivial views
 
@@ -119,6 +121,7 @@ Cursor 3.3+ shows a **context ring** next to the prompt with a per-bucket breakd
 
 - Bump version in **Info.plist + project.yml + pbxproj** together
 - LISTING.md drives What's New
+- Privacy manifest and export compliance on checklist
 - Screenshot sizes from source captures, not upscaled thumbnails
 
 ### Agent discipline (always on)
@@ -139,6 +142,15 @@ cursor agent "fix the SwiftUI preview crash in DocumentView"
 ```
 
 User rules in **Cursor Settings → Rules** also apply globally in both app and CLI.
+
+## Using both Cursor and Claude Code
+
+```bash
+cursor-ios-rules/install.sh user      # or: install.sh project
+claude-ios-rules/install.sh user      # or: install.sh project
+```
+
+See [claude-ios-rules](https://github.com/kkarimz/claude-ios-rules) for the Claude Code equivalent.
 
 ## Contributing
 

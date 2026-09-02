@@ -1,6 +1,6 @@
 ---
 description: UIKit programmatic iOS guidelines (opt-in when editing iOS UIKit Swift)
-globs: "**/ios/**/*.swift,**/*ViewController.swift,**/*ViewController+*.swift"
+globs: "**/*ViewController.swift,**/*ViewController+*.swift,**/ios/**/*.swift,**/UIKit/**/*.swift"
 alwaysApply: false
 ---
 
