@@ -157,6 +157,7 @@ MIT. See [LICENSE](LICENSE).
 ## Related
 
 - [Cursor Rules docs](https://cursor.com/docs/context/rules)
+- [claude-ios-rules](https://github.com/kkarimz/claude-ios-rules) (Claude Code equivalent)
 - [PatrickJS/awesome-cursorrules](https://github.com/PatrickJS/awesome-cursorrules) (broader community catalog)
 
 ---
