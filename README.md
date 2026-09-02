@@ -21,7 +21,16 @@ Three rules are always-on by design (~150 lines total). The rest load only when 
 
 ## Quick install
 
-### Option A: One project
+### Option A: Global (all projects on this Mac)
+
+```bash
+git clone https://github.com/kkarimz/cursor-ios-rules.git
+cursor-ios-rules/install.sh user
+```
+
+Copies to `~/.cursor/rules/`. Good for solo dev; watch the always-on token budget (see below).
+
+### Option B: One project
 
 ```bash
 git clone https://github.com/kkarimz/cursor-ios-rules.git
@@ -30,15 +39,6 @@ cd YourApp
 ```
 
 This copies rules to `YourApp/.cursor/rules/`. Commit that folder so your team gets the same agent behavior.
-
-### Option B: Global (all projects on this Mac)
-
-```bash
-git clone https://github.com/kkarimz/cursor-ios-rules.git
-cursor-ios-rules/install.sh user
-```
-
-Copies to `~/.cursor/rules/`. Good for solo dev; watch the always-on token budget (see below).
 
 ### Option C: Submodule + symlink
 
